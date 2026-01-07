@@ -597,23 +597,12 @@ function initDashboard() {
         saveToStorage('dashboardState', AppState.dashboard);
     });
 
-    // Refresh Flow
-    refreshBtn.addEventListener('click', () => {
-        updateFlowIframe();
-        showToast('รีเฟรช Gemini Flow 🔄', 'info');
-    });
-
-    // Open External
-    openExternalBtn.addEventListener('click', () => {
-        openFlowExternal();
-    });
-
-    // Force Login Button (Troubleshooting)
-    const forceLoginBtn = document.getElementById('forceLoginBtn');
-    if (forceLoginBtn) {
-        forceLoginBtn.addEventListener('click', () => {
+    // Open Pro Workspace
+    const openProBtn = document.getElementById('openProBtn');
+    if (openProBtn) {
+        openProBtn.addEventListener('click', () => {
             openFlowExternal();
-            showToast('กำลังเปิดหน้าต่างล็อกอิน... เมื่อเสร็จแล้วให้กลับมากด Sync ครับ 🔑', 'info');
+            showToast('เปิดห้องทำงาน PRO แล้ว! ล็อกอินเสร็จแล้วกลับมากด Sync นะครับ 🚀', 'success');
         });
     }
 
@@ -621,8 +610,8 @@ function initDashboard() {
     const syncSessionBtn = document.getElementById('syncSessionBtn');
     if (syncSessionBtn) {
         syncSessionBtn.addEventListener('click', async () => {
-            showToast('กำลังทำการ Hard Sync... 🔄', 'info');
-            // Hard Sync: Recreate the whole iframe node
+            showToast('กำลังเชื่อมต่อห้องทำงาน... 🔄', 'info');
+            // Recreate iframe to catch session
             updateFlowIframe(true);
         });
     }

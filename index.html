@@ -119,20 +119,23 @@
                             <span>Gemini Flow</span>
                         </div>
                         <div class="sidebar-actions">
-                            <button class="btn btn-secondary btn-sm flex align-center gap-1" id="syncSessionBtn"
-                                title="เชื่อมข้อมูล">
-                                🔄 เชื่อมต่อ Sessions
+                            <button class="btn btn-secondary btn-sm" id="syncSessionBtn"
+                                title="เชื่อมต่อข้อมูลจากหน้าต่างหลัก">
+                                🔄 Sync
                             </button>
-                            <button class="btn-icon" id="openExternal"
-                                title="เปิดหน้าใหม่ (หากปุ่มล็อกอินกดไม่ได้)">↗️</button>
-                            <button class="btn-icon" id="refreshFlow" title="รีโหลด">🔄</button>
+                            <button class="btn-icon" id="openExternal" title="เปิดหน้าต่างใหม่">↗️</button>
                         </div>
                     </div>
-                    <div id="loginHelpOverlay" class="login-help-hint"
-                        style="padding: 12px; background: rgba(59, 130, 246, 0.1); border-bottom: 1px solid var(--border-color); font-size: 13px; display: flex; align-items: center; justify-content: space-between;">
-                        <span style="color: var(--text-secondary);">⚠️ ปุ่มล็อกอินในนี้กดไม่ติด?</span>
-                        <button class="btn btn-primary btn-sm" id="forceLoginBtn"
-                            style="padding: 6px 12px; font-size: 12px; border-radius: 8px;">คลิกเพื่อล็อกอินที่นี่</button>
+                    <div id="proWorkspaceBanner" class="pro-workspace-banner"
+                        style="padding: 20px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(59, 130, 246, 0.15)); border-bottom: 1px solid var(--border-color); text-align: center;">
+                        <p style="font-size: 14px; color: var(--text-primary); margin-bottom: 12px; font-weight: 500;">
+                            🚀 ล็อกอินไม่ติด? ใช้โหมดมือโปร ชัวร์ 100%</p>
+                        <button class="btn btn-primary" id="openProBtn"
+                            style="width: 100%; padding: 12px; font-weight: 700; box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); border-radius: 12px; font-size: 15px;">
+                            เปิดห้องทำงาน PRO 🎬
+                        </button>
+                        <p style="font-size: 11px; color: var(--text-muted); margin-top: 8px; opacity: 0.8;">
+                            (ล็อกอินครั้งเดียว ใช้งานได้ยาวๆ ไม่ต้องกดใหม่)</p>
                     </div>
                     <div class="iframe-container" id="iframeContainer">
                         <iframe id="flowIframe" src="about:blank" frameborder="0"
