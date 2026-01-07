@@ -608,11 +608,20 @@ function initDashboard() {
         openFlowExternal();
     });
 
+    // Force Login Button (Troubleshooting)
+    const forceLoginBtn = document.getElementById('forceLoginBtn');
+    if (forceLoginBtn) {
+        forceLoginBtn.addEventListener('click', () => {
+            openFlowExternal();
+            showToast('กำลังเปิดหน้าต่างล็อกอิน... เมื่อเสร็จแล้วให้กลับมากด Sync ครับ 🔑', 'info');
+        });
+    }
+
     // Sync Session Button
     const syncSessionBtn = document.getElementById('syncSessionBtn');
     if (syncSessionBtn) {
         syncSessionBtn.addEventListener('click', async () => {
-            showToast('กำลังพยายามเชื่อมต่อ Session... 🔄', 'info');
+            showToast('กำลังเชื่อมต่อการล็อกอิน... 🔄', 'info');
 
             const flowIframe = document.getElementById('flowIframe');
             const flowId = AppState.config.geminiFlow;
@@ -624,7 +633,7 @@ function initDashboard() {
 
                 setTimeout(() => {
                     flowIframe.src = currentSrc;
-                    showToast('เชื่อมต่อ Sessions ใหม่แล้ว! หากยังไม่ได้กรุณาเช็คการตั้งค่าคุกกี้ใน Chrome ครับ 🙏', 'success');
+                    showToast('เชื่อมต่อสำเร็จ! หากยังไม่เปลี่ยนหน้า รบกวนกด Sync อีกรอบ หรือเช็คการตั้งค่า Cookie ครับ ✨', 'success');
                 }, 300);
             } else {
                 showToast('กรุณากรอก Flow ID ก่อนซิงค์ครับ', 'error');

@@ -120,13 +120,19 @@
                         </div>
                         <div class="sidebar-actions">
                             <button class="btn btn-secondary btn-sm flex align-center gap-1" id="syncSessionBtn"
-                                title="ดึงข้อมูลการล็อกอินจาก Browser">
+                                title="เชื่อมข้อมูล">
                                 🔄 เชื่อมต่อ Sessions
                             </button>
                             <button class="btn-icon" id="openExternal"
-                                title="เปิดหน้าใหม่ (หากล็อกอินในนี้ไม่ได้)">↗️</button>
-                            <button class="btn-icon" id="refreshFlow" title="รีโหลดหน้าจอ">🔄</button>
+                                title="เปิดหน้าใหม่ (หากปุ่มล็อกอินกดไม่ได้)">↗️</button>
+                            <button class="btn-icon" id="refreshFlow" title="รีโหลด">🔄</button>
                         </div>
+                    </div>
+                    <div id="loginHelpOverlay" class="login-help-hint"
+                        style="padding: 12px; background: rgba(59, 130, 246, 0.1); border-bottom: 1px solid var(--border-color); font-size: 13px; display: flex; align-items: center; justify-content: space-between;">
+                        <span style="color: var(--text-secondary);">⚠️ ปุ่มล็อกอินในนี้กดไม่ติด?</span>
+                        <button class="btn btn-primary btn-sm" id="forceLoginBtn"
+                            style="padding: 6px 12px; font-size: 12px; border-radius: 8px;">คลิกเพื่อล็อกอินที่นี่</button>
                     </div>
                     <div class="iframe-container">
                         <iframe id="flowIframe" src="about:blank" frameborder="0"
