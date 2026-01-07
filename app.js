@@ -621,33 +621,11 @@ function initDashboard() {
     const syncSessionBtn = document.getElementById('syncSessionBtn');
     if (syncSessionBtn) {
         syncSessionBtn.addEventListener('click', async () => {
-            showToast('กำลังเชื่อมต่อการล็อกอิน... 🔄', 'info');
-
-            const flowIframe = document.getElementById('flowIframe');
-            const flowId = AppState.config.geminiFlow;
-
-            if (flowId) {
-                // Hard reset the iframe to force a fresh session handshake
-                const currentSrc = `https://labs.google/fx/tools/flow/project/${flowId}`;
-                flowIframe.src = 'about:blank';
-
-                setTimeout(() => {
-                    flowIframe.src = currentSrc;
-                    showToast('เชื่อมต่อสำเร็จ! หากยังไม่เปลี่ยนหน้า รบกวนกด Sync อีกรอบ หรือเช็คการตั้งค่า Cookie ครับ ✨', 'success');
-                }, 300);
-            } else {
-                showToast('กรุณากรอก Flow ID ก่อนซิงค์ครับ', 'error');
-            }
+            showToast('กำลังทำการ Hard Sync... 🔄', 'info');
+            // Hard Sync: Recreate the whole iframe node
+            updateFlowIframe(true);
         });
     }
-
-    // Sync Flow URL when setup is saved
-    document.getElementById('setupForm').addEventListener('submit', () => {
-        if (AppState.dashboard.isSplitMode) {
-            // Short delay to ensure AppState is updated from storage
-            setTimeout(updateFlowIframe, 500);
-        }
-    });
 }
 
 function openFlowExternal() {
@@ -661,20 +639,31 @@ function openFlowExternal() {
     }
 }
 
-function updateFlowIframe() {
-    const flowIframe = document.getElementById('flowIframe');
+function updateFlowIframe(forceRecreate = false) {
+    const container = document.getElementById('iframeContainer');
     const flowId = AppState.config.geminiFlow;
 
     if (!flowId) {
-        flowIframe.src = 'about:blank';
+        container.innerHTML = `<div style="text-align:center; padding: 2rem;"><p>❌ ยังไม่ได้ตั้งค่า Flow ID</p></div>`;
         return;
     }
 
-    const url = `https://labs.google/fx/tools/flow/project/${flowId}`;
+    const url = `https://labs.google/fx/tools/flow/project/${flowId}?v=${Date.now()}`;
 
-    // Check if URL changed
-    if (flowIframe.src !== url) {
-        flowIframe.src = url;
+    if (forceRecreate) {
+        container.innerHTML = '';
+        const iframe = document.createElement('iframe');
+        iframe.id = 'flowIframe';
+        iframe.frameBorder = '0';
+        iframe.allow = 'clipboard-read; clipboard-write; identity-credentials-get; storage-access; browsing-topics';
+        iframe.src = url;
+        container.appendChild(iframe);
+        showToast('Hard Sync สำเร็จ! กรุณารอหน้าจอโหลดใหม่ครับ ✨', 'success');
+    } else {
+        const flowIframe = document.getElementById('flowIframe');
+        if (flowIframe && flowIframe.src !== url) {
+            flowIframe.src = url;
+        }
     }
 }
 
