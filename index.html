@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="สร้างคลิปวิดิโอปักตะกร้า TikTok ด้วย AI อัตโนมัติ พร้อมระบบโพสต์และตั้งเวลา จัดการสินค้า และซิงค์ Showcase ได้ง่ายๆ">
+    <meta name="keywords" content="TikTok, AI Video Creator, TikTok Affiliate, Auto Post, Product Review">
+    <title>TikTok AI Video Creator - สร้างคลิปปักตะกร้าอัตโนมัติด้วย AI</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Dashboard Toggle Button -->
+    <button id="dashboardToggle" class="dashboard-toggle-btn" title="เปิด/ปิด โหมดแบ่งหน้าจอ">
+        🌓
+    </button>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <div class="logo-icon">🎬</div>
+                    <span>TikTok AI Creator</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">หน้าแรก</a></li>
+                    <li><a href="#features">ฟีเจอร์</a></li>
+                    <li><a href="#app">เริ่มใช้งาน</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <!-- <section class="hero section" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>สร้างคลิป TikTok<br>ปักตะกร้าด้วย AI</h1>
+                    <p>ระบบ AI ที่ช่วยสร้างคลิปรีวิวสินค้าสวยงาม โพสต์อัตโนมัติ และจัดการสินค้าได้ง่ายๆ ทำให้การทำ
+                        TikTok Affiliate เป็นเรื่องง่ายกว่าที่เคย</p>
+                    <div class="hero-actions">
+                        <a href="#app" class="btn btn-primary">เริ่มใช้งานฟรี</a>
+                        <a href="#features" class="btn btn-outline">ดูฟีเจอร์ทั้งหมด</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="C:/Users/Frame Manee/.gemini/antigravity/brain/22a9e83d-5f93-4635-9075-6c3679b2b9b1/hero_illustration_1767793872642.png"
+                        alt="TikTok AI Video Creator">
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Features Section -->
+    <!-- <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ฟีเจอร์เด่นที่ทำให้ TikTok Affiliate ง่ายขึ้น</h2>
+                <p class="section-description">ครบครันทุกฟีเจอร์ที่คุณต้องการสำหรับการทำ TikTok Affiliate แบบมืออาชีพ
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="card feature-card">
+                    <div class="feature-icon">
+                        <span>🎨</span>
+                    </div>
+                    <h3>AI Visual Creator</h3>
+                    <p>สร้างคลิปรีวิวสินค้าให้น่าสนใจจากรูปภาพโดยอัตโนมัติ สวยงาม ดึงดูดสายตา ด้วยพลัง AI</p>
+                </div>
+
+                <div class="card feature-card">
+                    <div class="feature-icon">
+                        <span>⏰</span>
+                    </div>
+                    <h3>Auto-Post & Schedule</h3>
+                    <p>ระบบโพสต์ปักตะกร้าและตั้งเวลาล่วงหน้าบน TikTok แบบ 100% ไม่ต้องมานั่งกดโพสต์เองทีละคลิป</p>
+                </div>
+
+                <div class="card feature-card">
+                    <div class="feature-icon">
+                        <span>🔄</span>
+                    </div>
+                    <h3>Showcase One-Click Sync</h3>
+                    <p>ดึงข้อมูลสินค้าจาก Showcase ได้ทันที ไม่ต้องเสียเวลาหา ID สินค้าเองให้วุ่นวาย</p>
+                </div>
+
+                <div class="card feature-card">
+                    <div class="feature-icon">
+                        <span>📦</span>
+                    </div>
+                    <h3>Smart Product Inventory</h3>
+                    <p>ระบบคลังข้อมูลสินค้าส่วนตัว จัดระเบียบง่าย เรียกใช้งานไว พร้อมทำซ้ำได้ทันที</p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- App Interface Section -->
+    <section class="section" id="app">
+        <div class="container">
+            <!-- <div class="section-header">
+                <h2 class="section-title">เริ่มสร้างคลิปของคุณ</h2>
+                <p class="section-description">ตั้งค่าและเริ่มใช้งาน ได้ในไม่กี่ขั้นตอน</p>
+            </div> -->
+
+            <div class="app-container" id="appContainer">
+                <!-- Sidebar (Flow Iframe) -->
+                <aside class="app-sidebar" id="appSidebar">
+                    <div class="sidebar-header">
+                        <div class="logo">
+                            <span>Gemini Flow</span>
+                        </div>
+                        <div class="sidebar-actions">
+                            <button class="btn btn-secondary btn-sm flex align-center gap-1" id="syncSessionBtn"
+                                title="ดึงข้อมูลการล็อกอินจาก Browser">
+                                🔄 เชื่อมต่อ Sessions
+                            </button>
+                            <button class="btn-icon" id="openExternal"
+                                title="เปิดหน้าใหม่ (หากล็อกอินในนี้ไม่ได้)">↗️</button>
+                            <button class="btn-icon" id="refreshFlow" title="รีโหลดหน้าจอ">🔄</button>
+                        </div>
+                    </div>
+                    <div class="iframe-container">
+                        <iframe id="flowIframe" src="about:blank" frameborder="0"
+                            allow="clipboard-read; clipboard-write; identity-credentials-get; storage-access; browsing-topics"
+                            sandbox="allow-forms allow-modals allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-storage-access-by-user-activation"></iframe>
+                    </div>
+                </aside>
+
+                <!-- Main Content (AI Creator) -->
+                <main class="app-main">
+                    <div class="app-interface">
+                        <!-- Tabs -->
+                        <div class="tabs">
+                            <div class="tab-list">
+                                <button class="tab-button active" data-tab="setup">⚙️ ตั้งค่าระบบ</button>
+                                <button class="tab-button" data-tab="creator">🎨 AI Creator</button>
+                                <button class="tab-button" data-tab="schedule">⏰ ตั้งเวลาโพสต์</button>
+                                <button class="tab-button" data-tab="showcase">🔄 Showcase Sync</button>
+                                <button class="tab-button" data-tab="inventory">📦 คลังสินค้า</button>
+                            </div>
+
+                            <!-- Setup Tab -->
+                            <div class="tab-content active" id="setup">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">การเตรียมระบบ</h3>
+                                        <p class="card-description">กรุณากรอกข้อมูล Gemini Flow และ API Key
+                                            เพื่อเริ่มใช้งาน</p>
+                                    </div>
+
+                                    <form id="setupForm">
+                                        <div class="form-group">
+                                            <label class="form-label" for="geminiFlow">Gemini Flow ID</label>
+                                            <input type="text" id="geminiFlow" class="form-input"
+                                                placeholder="กรอก Gemini Flow ID ของคุณ" required>
+                                            <p class="form-helper">คุณสามารถหา Flow ID ได้จาก Google AI Studio</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label" for="apiKey">API Key</label>
+                                            <input type="password" id="apiKey" class="form-input"
+                                                placeholder="กรอก API Key ของคุณ" required>
+                                            <p class="form-helper">API Key จะถูกเก็บไว้ในเครื่องของคุณเท่านั้น</p>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label" for="tiktokToken">TikTok Access Token
+                                                (Optional)</label>
+                                            <input type="password" id="tiktokToken" class="form-input"
+                                                placeholder="กรอก TikTok Access Token สำหรับ Auto-Post">
+                                            <p class="form-helper">จำเป็นเฉพาะเมื่อต้องการใช้ฟีเจอร์ Auto-Post</p>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">
+                                            <span>💾</span>
+                                            บันทึกการตั้งค่า
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- AI Creator Tab -->
+                            <div class="tab-content" id="creator">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">สร้างวิดิโอด้วย AI</h3>
+                                        <p class="card-description">อัปโหลดรูปภาพสินค้าและให้ AI สร้างคลิปรีวิวสวยๆ
+                                            ให้คุณ</p>
+                                    </div>
+
+                                    <form id="creatorForm">
+                                        <div class="form-group">
+                                            <label class="form-label">อัปโหลดรูปภาพสินค้า</label>
+                                            <div class="file-upload" id="imageUpload">
+                                                <div class="file-upload-icon">📸</div>
+                                                <p><strong>คลิกเพื่ออัปโหลดรูปภาพ</strong></p>
+                                                <p class="form-helper">รองรับ JPG, PNG (สูงสุด 10MB)</p>
+                                                <input type="file" id="productImage" accept="image/*" multiple>
+                                            </div>
+                                            <div id="imagePreview" class="product-grid mt-2"></div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label" for="productName">ชื่อสินค้า</label>
+                                            <input type="text" id="productName" class="form-input"
+                                                placeholder="เช่น: เสื้อยืดคอกลม สีขาว" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label" for="productDescription">รายละเอียดสินค้า</label>
+                                            <textarea id="productDescription" class="form-textarea"
+                                                placeholder="บอกรายละเอียดสินค้า จุดเด่น คุณสมบัติพิเศษ..."
+                                                required></textarea>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label" for="productPrice">ราคา (บาท)</label>
+                                            <input type="number" id="productPrice" class="form-input" placeholder="299"
+                                                required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label" for="videoStyle">สไตล์วิดิโอ</label>
+                                            <select id="videoStyle" class="form-select">
+                                                <option value="modern">Modern & Minimal</option>
+                                                <option value="energetic">Energetic & Fun</option>
+                                                <option value="elegant">Elegant & Luxury</option>
+                                                <option value="casual">Casual & Friendly</option>
+                                            </select>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">
+                                            <span>✨</span>
+                                            สร้างวิดิโอด้วย AI
+                                        </button>
+                                    </form>
+
+                                    <div id="videoPreview" class="mt-4 hidden">
+                                        <div class="card card-glass">
+                                            <h4>ตัวอย่างวิดิโอ</h4>
+                                            <div id="videoPlayer"
+                                                style="background: var(--bg-tertiary); height: 400px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin-top: 1rem;">
+                                                <p class="text-secondary">วิดิโอจะแสดงที่นี่</p>
+                                            </div>
+                                            <div class="flex gap-2 mt-3">
+                                                <button class="btn btn-secondary" id="saveVideoBtn"
+                                                    onclick="saveVideo()">
+                                                    <span>💾</span>
+                                                    บันทึกวิดิโอ
+                                                </button>
+                                                <button class="btn btn-ghost">
+                                                    <span>📤</span>
+                                                    โพสต์ทันที
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Schedule Tab -->
+                            <div class="tab-content" id="schedule">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">ตั้งเวลาโพสต์อัตโนมัติ</h3>
+                                        <p class="card-description">กำหนดเวลาโพสต์วิดิโอล่วงหน้า ระบบจะโพสต์ให้อัตโนมัติ
+                                        </p>
+                                    </div>
+
+                                    <form id="scheduleForm">
+                                        <div class="form-group">
+                                            <label class="form-label" for="scheduleVideo">เลือกวิดิโอ</label>
+                                            <select id="scheduleVideo" class="form-select" required>
+                                                <option value="">-- เลือกวิดิโอที่ต้องการโพสต์ --</option>
+                                                <option value="video1">วิดิโอรีวิวสินค้า #1</option>
+                                                <option value="video2">วิดิโอรีวิวสินค้า #2</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label" for="scheduleDate">วันที่โพสต์</label>
+                                            <input type="date" id="scheduleDate" class="form-input" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label" for="scheduleTime">เวลาโพสต์</label>
+                                            <input type="time" id="scheduleTime" class="form-input" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="form-label" for="postCaption">Caption</label>
+                                            <textarea id="postCaption" class="form-textarea"
+                                                placeholder="เขียน caption สำหรับโพสต์..."></textarea>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">
+                                            <span>⏰</span>
+                                            ตั้งเวลาโพสต์
+                                        </button>
+                                    </form>
+
+                                    <div class="mt-4">
+                                        <h4 class="mb-3">รายการโพสต์ที่กำหนดไว้</h4>
+                                        <div class="schedule-list" id="scheduleList">
+                                            <div class="schedule-item">
+                                                <div class="schedule-info">
+                                                    <h4>วิดิโอรีวิวสินค้า #1</h4>
+                                                    <p class="schedule-time">📅 8 มกราคม 2026 เวลา 18:00 น.</p>
+                                                </div>
+                                                <div class="flex gap-2">
+                                                    <span class="schedule-status status-scheduled">กำหนดเวลาแล้ว</span>
+                                                    <button class="btn btn-ghost"
+                                                        style="padding: 0.5rem 1rem;">ลบ</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Showcase Sync Tab -->
+                            <div class="tab-content" id="showcase">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">ซิงค์สินค้าจาก TikTok Showcase</h3>
+                                        <p class="card-description">ดึงข้อมูลสินค้าจาก Showcase ของคุณมาใช้งานได้ทันที
+                                        </p>
+                                    </div>
+
+                                    <form id="showcaseForm">
+                                        <div class="form-group">
+                                            <label class="form-label" for="showcaseId">Showcase ID หรือ Product
+                                                ID</label>
+                                            <input type="text" id="showcaseId" class="form-input"
+                                                placeholder="กรอก ID ของสินค้าหรือ Showcase" required>
+                                            <p class="form-helper">คุณสามารถหา ID ได้จาก URL ของสินค้าใน TikTok Shop</p>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-secondary">
+                                            <span>🔄</span>
+                                            ซิงค์ข้อมูลสินค้า
+                                        </button>
+                                    </form>
+
+                                    <div id="showcaseResults" class="mt-4 hidden">
+                                        <h4 class="mb-3">ผลลัพธ์การซิงค์</h4>
+                                        <div class="card card-glass">
+                                            <div class="flex gap-3">
+                                                <img src="https://via.placeholder.com/150" alt="Product"
+                                                    class="product-image"
+                                                    style="width: 150px; height: 150px; border-radius: var(--radius-md);">
+                                                <div style="flex: 1;">
+                                                    <h4 id="syncedProductName">ชื่อสินค้า</h4>
+                                                    <p class="text-secondary" id="syncedProductDesc">รายละเอียดสินค้า...
+                                                    </p>
+                                                    <p class="product-price mt-2" id="syncedProductPrice">฿299</p>
+                                                    <div class="flex gap-2 mt-3">
+                                                        <button class="btn btn-primary">
+                                                            <span>✨</span>
+                                                            สร้างวิดิโอจากสินค้านี้
+                                                        </button>
+                                                        <button class="btn btn-ghost">
+                                                            <span>💾</span>
+                                                            บันทึกในคลัง
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Inventory Tab -->
+                            <div class="tab-content" id="inventory">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">คลังสินค้าของฉัน</h3>
+                                        <p class="card-description">จัดการสินค้าทั้งหมดของคุณในที่เดียว</p>
+                                    </div>
+
+                                    <div class="flex gap-2 mb-3">
+                                        <input type="text" id="searchProduct" class="form-input"
+                                            placeholder="🔍 ค้นหาสินค้า..." style="flex: 1;">
+                                        <button class="btn btn-primary" id="addProductBtn">
+                                            <span>➕</span>
+                                            เพิ่มสินค้าใหม่
+                                        </button>
+                                    </div>
+
+                                    <div class="product-grid" id="productInventory">
+                                        <!-- Sample Products -->
+                                        <div class="product-card">
+                                            <img src="https://via.placeholder.com/250x200" alt="Product"
+                                                class="product-image">
+                                            <div class="product-info">
+                                                <h4 class="product-name">เสื้อยืดคอกลม สีขาว</h4>
+                                                <p class="product-price">฿299</p>
+                                            </div>
+                                            <div class="product-actions">
+                                                <button class="btn btn-ghost" style="flex: 1; padding: 0.5rem;">
+                                                    <span>✨</span>
+                                                    สร้างวิดิโอ
+                                                </button>
+                                                <button class="btn btn-ghost" style="padding: 0.5rem;">
+                                                    <span>🗑️</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-card">
+                                            <img src="https://via.placeholder.com/250x200" alt="Product"
+                                                class="product-image">
+                                            <div class="product-info">
+                                                <h4 class="product-name">กระเป๋าสะพายหนัง</h4>
+                                                <p class="product-price">฿890</p>
+                                            </div>
+                                            <div class="product-actions">
+                                                <button class="btn btn-ghost" style="flex: 1; padding: 0.5rem;">
+                                                    <span>✨</span>
+                                                    สร้างวิดิโอ
+                                                </button>
+                                                <button class="btn btn-ghost" style="padding: 0.5rem;">
+                                                    <span>🗑️</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="product-card">
+                                            <img src="https://via.placeholder.com/250x200" alt="Product"
+                                                class="product-image">
+                                            <div class="product-info">
+                                                <h4 class="product-name">รองเท้าผ้าใบ สีดำ</h4>
+                                                <p class="product-price">฿1,290</p>
+                                            </div>
+                                            <div class="product-actions">
+                                                <button class="btn btn-ghost" style="flex: 1; padding: 0.5rem;">
+                                                    <span>✨</span>
+                                                    สร้างวิดิโอ
+                                                </button>
+                                                <button class="btn btn-ghost" style="padding: 0.5rem;">
+                                                    <span>🗑️</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+    </section>
+
+    </div>
+    </main>
+    </div>
+    </div>
+    </section>
+
+    <!-- Footer -->
+    <!-- <footer class="section" style="background: var(--bg-secondary); margin-top: 4rem;">
+        <div class="container text-center">
+            <div class="logo" style="justify-content: center; margin-bottom: 1rem;">
+                <div class="logo-icon">🎬</div>
+                <span>TikTok AI Creator</span>
+            </div>
+            <p class="text-secondary">สร้างคลิป TikTok ปักตะกร้าด้วย AI ง่ายๆ ในไม่กี่คลิก</p>
+            <p class="text-muted mt-2" style="font-size: var(--font-size-sm);">© 2026 TikTok AI Creator. All rights
+                reserved.</p>
+        </div>
+    </footer> -->
+
+    <script src="app.js"></script>
+</body>
+
+</html>
